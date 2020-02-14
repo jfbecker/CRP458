@@ -87,5 +87,22 @@
 <h1>About Me</h1>
   <p>Hey there, <br> My name is <b>Jason Becker</b> and I am a senior in Community and Regional Planning. I will be on campus this semester. I am working towards a GIS minor and have recently taken a class regarding programming and automation with GIS. That course introduced me to coding, but mainly focused on coding in the python language. I have no experience with HTML or JavaScript, but I am familiar with standard coding practices. I hope to further familiarize myself in coding and learn different languages and how they interact and improve GIS projects.</p>
 
+    <script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+  var myDropdown = document.getElementById("myDropdown");
+    if (myDropdown.classList.contains('show')) {
+      myDropdown.classList.remove('show');
+    }
+  }
+}
+</script>
 </body>
 </html>
