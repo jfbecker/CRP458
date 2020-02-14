@@ -79,11 +79,10 @@
     <a href="#3" onclick="window.location=('https://github.com/jfbecker/CRP458/blob/master/exercise3/dams.geojson')">Exercise 3</a>
     <a href="#4" onclick="window.location=('https://jfbecker.github.io/CRP458/exercise4/NewEx4Map/')">Exercise 4</a>
   </div>
-  </div> 
-</div>
-    
-    </body>
+    </div>
+    </div>
 
+    <br>
      <head> 
         <H1>Using JavaScript Items</H1>
     </head>
@@ -93,38 +92,14 @@
         color: darkorange;
         }
     </style>
+
+    <body>
     
-<body>
-        <div>
-            <h2>
-                Form:
-            </h2>
-            <input type="text" id="nameInput" name="nameInput" value="Name">
-            <select name="genderSelect" id="genderSelect">
-                <option value="Female">Female</option>
-                <option value="Male">Male</option>
-                <option value="Other">Other</option>
-            </select>
-            <button onclick="processData()">Submit</button>
-            <div id="displayDiv"></div>
-        </div>
-<script>
-
-var name_obj = {};
-
-function processData() {
-
-    var t_name = document.getElementById("nameInput").value;
-    var t_gender = document.getElementById("genderSelect").value;
-
-    name_obj.name = t_name;
-    name_obj.gender = t_gender;
+    <a href="./form1.html"> Form 1</a>
+    <br>
+    <a href="form2.html"> Form 2</a>
     
-    var displayDiv = document.getElementById("displayDiv");
-    displayDiv.innerHTML = "Hello, " + name_obj.name + ". You are a " + name_obj.gender + ".";
-}
-
-</script>
+    </body>
     
     
       <script>
