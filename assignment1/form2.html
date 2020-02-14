@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Test</title>
+</head>
+<body>
+        <div>
+            <h1>
+                Form:
+            </h1>
+            <input type="text" id="numberInput" name="numberInput" value="Enter a number.">
+            <button onclick="processData()">Add to array</button>
+            <br>
+            <br>
+            <button onclick="getEvenOdds()">Get Evens and Odds</button>
+            <div id="displayDiv"></div>
+        </div>
+<script>
+
+var num_array = []
+
+function processData() {
+    var curNumStr = document.getElementById("numberInput").value;
+    var curNum = parseInt(curNumStr);
+    num_array.push(curNum);
+    document.getElementById("displayDiv").innerHTML += curNum + " added." + '<br>';
+}
+
+function getEvenOdds() {
+    var num_even = 0;
+    var num_odd = 0;
+
+    for(var i = 0; i < num_array.length; i++) {
+        var t_num = parseInt(num_array[i]);
+        if((t_num % 2) == 0) {
+            num_even += 1;
+        } else {
+            num_odd += 1;
+        }
+    }
+    document.getElementById("displayDiv").innerHTML += "<br><br>" + "Even: " + num_even + "<br>" + "Odd: " + num_odd;
+ }
+
+</script>
+
+</body>
+</html> 
