@@ -1,0 +1,93 @@
+<html>
+    <head>
+    <meta name="description" content="LA/CRP 458/558 Leaflet starter file - 2020">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Exercise 6</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+
+    <style>
+        #map {
+            width: 700px;
+            height: 500px;
+        }
+        
+    </style>
+
+    </head>  
+    
+    
+    <body>
+    <div id="map"></div>
+        
+<script>
+        
+ console.clear();
+
+//Base Layers
+var OSM = L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 18
+});
+
+//create the map
+var map = L.map('map', {
+  center: new L.LatLng(42.0908, -93.6208),
+  zoom: 4,
+  layers: [OSM]
+});
+
+
+//------ individual city markers
+var littleton = L.circleMarker([39.61, -105.02]).bindPopup('This is Littleton, CO.'),
+    denver    = L.circle([39.74, -104.99]).bindPopup('This is Denver, CO.'),
+    aurora    = L.marker([39.73, -104.8]).bindPopup('This is Aurora, CO.'),
+    golden    = L.marker([39.77, -105.23]).bindPopup('This is Golden, CO.'),
+    ames = L.marker([42, -93]).bindPopup('This is Ames, IA.').addTo(map);
+
+var polylinePoints = [
+    new L.LatLng(41.25, -96),
+    new L.LatLng(41.590833, -93.620833),
+];
+    
+var polylineOptions = {
+    color: 'blue',
+    weight: 6,
+    opacity: 0.9
+};
+
+var polyline = new L.Polyline(polylinePoints, polylineOptions);
+    
+var cityLayerGroup = L.layerGroup([littleton, aurora, golden]);
+
+var p1 = new L.LatLng(41.25, -96),
+    p2 = new L.LatLng(41.590833, -93.620833),
+    p3 = new L.LatLng(39.099722, -94.578333),
+    polygonPoints = [p1, p2, p3];
+    
+var polygon = new L.Polygon(polygonPoints);
+
+//layer control
+var baseMaps = {
+  "OpenStreetMap": OSM
+};
+
+var overlayMaps = {
+    "Denver": denver,
+    "Ames": ames,
+    "Omaha to Des Moines": polyline,
+    "Omaha, Kansas City and Des Moines Area": polygon,
+    "Other Colorado Cities with CircleMarker": cityLayerGroup
+};
+    
+
+L.control.layers(baseMaps, overlayMaps).addTo(map);       
+        
+</script>
+    </body>
+</html>
