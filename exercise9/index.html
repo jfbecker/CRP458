@@ -136,7 +136,7 @@ window.onclick = function(e) {
         
     <script type="text/javascript">
     
-        var map = L.map('map').setView([37.8, -96], 3);
+        var map = L.map('map').setView([37.8, -96], 3.5);
 
         var basemap = 
         L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -154,12 +154,17 @@ window.onclick = function(e) {
         var states = 
         L.geoJSON(usa).addTo(map);
         
+        states.setStyle({fillColor :'green'});
+        
         var mexico =
         L.geoJSON(mexico).addTo(map);
         
+        mexico.setStyle({fillColor :'red'});
+        
         var canada =
         L.geoJSON(canada).addTo(map);
-        
+                         
+        canada.setStyle({fillColor :'blue'});
         
         var overlays = {
             "USA": states,
@@ -174,6 +179,7 @@ window.onclick = function(e) {
 
         
         L.control.layers(baselayers, overlays).addTo(map);
+        
         
         
         
